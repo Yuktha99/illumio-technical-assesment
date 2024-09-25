@@ -41,6 +41,10 @@ class FlowLogParser:
                     port = row['dstport']
                     protocol = row['protocol'].lower().strip()
                     tag = row['tag'].strip()
+                    
+                    # skip invalid data
+                    if not port or not protocol or not tag:
+                        raise ValueError("Invalid lookup table entry", row)
 
                     # store data into a dict
                     self.lookup_table[(port, protocol)] = tag
@@ -61,6 +65,7 @@ class FlowLogParser:
 
                     # skip the log if it is not version 2 or invalid log
                     if len(parts) < 14 or parts[0] != '2':
+                        print("skipping invalid log entry:",{line.strip()})
                         continue
 
                     # retrieve the necessary data
