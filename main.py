@@ -39,8 +39,8 @@ class FlowLogParser:
                     raise KeyError("lookup table CSV file is missing one/more required headers:",expected_headers)
                 for row in reader:
                     port = row['dstport']
-                    protocol = row['protocol'].lower()
-                    tag = row['tag']
+                    protocol = row['protocol'].lower().strip()
+                    tag = row['tag'].strip()
 
                     # store data into a dict
                     self.lookup_table[(port, protocol)] = tag
@@ -64,8 +64,8 @@ class FlowLogParser:
                         continue
 
                     # retrieve the necessary data
-                    dstport = parts[5]
-                    protocol = FlowLogParser.get_protocol(parts[7])
+                    dstport = parts[6] # dst port is at index 6
+                    protocol = FlowLogParser.get_protocol(parts[7]) # protocol number is at index 7
                     key = (dstport, protocol)
 
                     # update the tag_counts and port_protocol_counts

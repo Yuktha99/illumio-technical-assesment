@@ -9,7 +9,7 @@ The dstport and protocol combination decide what tag can be applied.\
 \
 Sample flow logs (default logs, version 2 only).\
 2 123456789012 eni-0a1b2c3d 10.0.1.201 198.51.100.2 443 49153 6 25 20000 1620140761 1620140821 ACCEPT OK\
-2 123456789012 eni-4d3c2b1a 192.168.1.100 203.0.113.101 23 49154 6 15 12000 1620140761 1620140821 REJECT OK\
+2 123456789012 eni-4d3c2b1a 192.168.1.100 203.0.113.101 23 49154 6 15 12000 1620140761 1620140821 REJECT OK
 
 For e.g.  the lookup table file can be something like:\
 dstport,protocol,tag\
@@ -21,13 +21,13 @@ The program should generate an output file containing the following:\
 Count of matches for each tag, sample o/p shown below\
 Tag Counts:\
 Tag,Count\
-sv_P2,1\
+sv_P2,1
 \
 Count of matches for each port/protocol combination\
 Port/Protocol Combination Counts:\
 Port,Protocol,Count\
 22,tcp,1\
-23,tcp,1\
+23,tcp,1
 
 ### Requirement details
 
