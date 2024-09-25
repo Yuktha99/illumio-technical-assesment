@@ -50,3 +50,9 @@ Port,Protocol,Count\
 * The output is written into two CSV files port_protocol_counts.csv and tag_counts.csv.
 * The program takes the flow logs and lookup table filenames as the input.
 
+### Instructions to run the code
+
+* Clone the git repository, and go to the project folder.
+* Run the python file main.py.
+* Input the  flow logs and lookup table filenames.
+* The output is written into two CSV files port_protocol_counts.csv and tag_counts.csv.
